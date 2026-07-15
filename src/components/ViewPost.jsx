@@ -48,6 +48,7 @@ const ViewMyPost = () => {
 
   return (
     <div>
+        <NavBar/>
 
       <div className="container mt-5">
 
