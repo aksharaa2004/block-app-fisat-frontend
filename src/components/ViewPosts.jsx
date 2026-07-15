@@ -1,0 +1,109 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+const ViewPosts = () => {
+
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetchMyPosts();
+  }, []);
+
+  const fetchMyPosts = async () => {
+
+    const token = sessionStorage.getItem("token");
+    const userId = sessionStorage.getItem("userId");
+
+    try {
+
+      const response = await axios.post(
+        "http://localhost:7500/viewmyposts",
+        {
+          userId: userId
+        },
+        {
+          headers: {
+            token: token
+          }
+        }
+      );
+
+      console.log(response.data);
+
+      if (Array.isArray(response.data)) {
+        setPosts(response.data);
+      } else {
+        setPosts([]);
+      }
+
+    } catch (error) {
+      console.log(error);
+      alert("Unable to fetch your posts");
+    }
+  };
+
+  return (
+    <div className="container mt-5">
+
+      <h2 className="text-center mb-4">My Posts</h2>
+
+      <div className="row">
+
+        {posts.length > 0 ? (
+
+          posts.map((post) => (
+
+            <div className="col-md-6 mb-3" key={post._id}>
+
+              <div className="card shadow">
+
+                <div className="card-header bg-primary text-white">
+                  <h5 className="mb-0">My Post</h5>
+                </div>
+
+                <div className="card-body">
+
+                  <p>
+                    <strong>Message:</strong>
+                  </p>
+
+                  <p>{post.Message}</p>
+
+                  <hr />
+
+                  <p>
+                    <strong>User ID:</strong> {post.userId}
+                  </p>
+
+                  <p>
+                    <strong>Post ID:</strong> {post._id}
+                  </p>
+
+                </div>
+
+                <div className="card-footer">
+                  <strong>Posted Date:</strong>{" "}
+                  {new Date(post.PostedDate).toLocaleString()}
+                </div>
+
+              </div>
+
+            </div>
+
+          ))
+
+        ) : (
+
+          <div className="text-center">
+            <h5>No Posts Found</h5>
+          </div>
+
+        )}
+
+      </div>
+
+    </div>
+  );
+};
+
+export default ViewPosts;
