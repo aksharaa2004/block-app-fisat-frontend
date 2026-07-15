@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Navbar from "./NavBar";
 
 
 const ViewAll = () => {
@@ -38,7 +39,7 @@ const ViewAll = () => {
 
   return (
     <div>
-
+        <Navbar/>
 
       <div className="container mt-5">
         <h2 className="text-center mb-4">View All Posts</h2>

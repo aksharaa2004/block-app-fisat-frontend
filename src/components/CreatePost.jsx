@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Navbar from "./NavBar";
 
 function CreatePost() {
 
@@ -63,6 +64,9 @@ function CreatePost() {
   };
 
   return (
+
+    <div>
+    <Navbar/>
     <div className="container mt-5">
 
       <div className="row justify-content-center">
@@ -104,6 +108,7 @@ function CreatePost() {
 
           </div>
 
+        </div>
         </div>
 
       </div>
