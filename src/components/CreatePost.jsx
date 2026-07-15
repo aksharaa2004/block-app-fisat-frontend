@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-
 function CreatePost() {
 
   const [input, setInput] = useState({
-    message: "",
+    Message: "",
     userId: ""
   });
 
@@ -22,7 +21,7 @@ function CreatePost() {
     const userId = sessionStorage.getItem("userId");
 
     const payload = {
-      message: input.message,
+      Message: input.Message,
       userId: userId
     };
 
@@ -39,18 +38,19 @@ function CreatePost() {
         }
       );
 
-      console.log(response.data);
-
       if (response.data.status === "success") {
+
         alert("Post Created Successfully");
 
         setInput({
-          message: "",
+          Message: "",
           userId: ""
         });
 
       } else {
+
         alert(response.data.status);
+
       }
 
     } catch (error) {
@@ -65,8 +65,8 @@ function CreatePost() {
   return (
     <div className="container mt-5">
 
-
       <div className="row justify-content-center">
+
         <div className="col-md-8">
 
           <div className="card shadow">
@@ -83,11 +83,12 @@ function CreatePost() {
                 <textarea
                   className="form-control"
                   rows="5"
-                  name="message"
-                  value={input.message}
+                  name="Message"
+                  value={input.Message}
                   onChange={inputHandler}
                   placeholder="Enter your message"
                 ></textarea>
+
               </div>
 
               <div className="d-grid">
@@ -104,6 +105,7 @@ function CreatePost() {
           </div>
 
         </div>
+
       </div>
 
     </div>

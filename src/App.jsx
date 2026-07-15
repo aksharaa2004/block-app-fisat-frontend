@@ -21,6 +21,7 @@ function App() {
       <CreatePost/>
       <ViewPosts/>
       
+      <ViewMyPost/>
     </BrowserRouter>
      
     </>
