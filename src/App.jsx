@@ -8,6 +8,7 @@ import { BrowserRouter } from 'react-router-dom'
 import SignIn from './components/SignIn'
 import CreatePost from './components/CreatePost'
 import ViewPosts from './components/ViewPosts'
+import ViewAll from './components/Viewall'
 
 
 function App() {
@@ -20,8 +21,9 @@ function App() {
       <SignIn/>
       <CreatePost/>
       <ViewPosts/>
+      <ViewAll/>
       
-      <ViewMyPost/>
+
     </BrowserRouter>
      
     </>
