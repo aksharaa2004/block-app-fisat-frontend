@@ -5,6 +5,7 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import SignUp from './components/SignUp'
 import { BrowserRouter } from 'react-router-dom'
+import SignIn from './components/SignIn'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -13,6 +14,7 @@ function App() {
     <>
     <BrowserRouter>
       <SignUp/>
+      <SignIn/>
     </BrowserRouter>
      
     </>
