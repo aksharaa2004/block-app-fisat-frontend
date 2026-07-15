@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-
 function CreatePost() {
 
   const [input, setInput] = useState({
-    Message: ""
+    Message: "",
+    userId: ""
   });
 
   const inputHandler = (event) => {
@@ -38,14 +38,13 @@ function CreatePost() {
         }
       );
 
-      console.log(response.data);
-
       if (response.data.status === "success") {
 
         alert("Post Created Successfully");
 
         setInput({
-          Message: ""
+          Message: "",
+          userId: ""
         });
 
       } else {
@@ -65,7 +64,6 @@ function CreatePost() {
 
   return (
     <div className="container mt-5">
-
 
       <div className="row justify-content-center">
 

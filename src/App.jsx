@@ -7,6 +7,7 @@ import SignUp from './components/SignUp'
 import { BrowserRouter } from 'react-router-dom'
 import SignIn from './components/SignIn'
 import CreatePost from './components/CreatePost'
+import ViewMyPost from './components/ViewPost'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,6 +18,7 @@ function App() {
       <SignUp/>
       <SignIn/>
       <CreatePost/>
+      <ViewMyPost/>
     </BrowserRouter>
      
     </>
